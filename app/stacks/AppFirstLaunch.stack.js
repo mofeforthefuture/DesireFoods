@@ -3,6 +3,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import SplachScreen from '../pages/SplashScreen';
 import Login from '../pages/Login';
+import Register from '../pages/Register';
 
 
 
@@ -14,6 +15,7 @@ export default function AppFirstLaunch() {
         <Navigator headerMode='none' initialRouteName="SplashScreen">
             <Screen name="SplashScreen" component={SplachScreen} />
             <Screen name="Login" component={Login} />
+            <Screen name="Register" component={Register} />
         </Navigator>
     )
 }

@@ -4,6 +4,7 @@ import { COLORS, SIZES } from '../constants/themes'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
+
 export default function Input({ name, placeholder }) {
     return (
         <>
