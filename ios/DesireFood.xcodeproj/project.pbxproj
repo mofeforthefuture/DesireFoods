@@ -34,23 +34,23 @@
 		00E356EE1AD99517003FC87E /* DesireFoodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesireFoodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* DesireFoodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DesireFoodTests.m; sourceTree = "<group>"; };
-		05F89E09800A4BD3A826F113 /* main.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = main.ttf; path = ../app/assets/fonts/main.ttf; sourceTree = "<group>"; };
+		05F89E09800A4BD3A826F113 /* main.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = main.ttf; path = ../app/assets/fonts/main.ttf; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* DesireFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesireFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = DesireFood/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = DesireFood/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = DesireFood/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DesireFood/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DesireFood/main.m; sourceTree = "<group>"; };
-		1DD38A53D986491CA4881613 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../app/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		1DD38A53D986491CA4881613 /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../app/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		1F935ED87C93DAA5E45172CF /* libPods-DesireFood-DesireFoodTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesireFood-DesireFoodTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B7E0AD843BA711EF140B760 /* libPods-DesireFood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesireFood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		450F3C4D01AC58DC2EA66F8E /* Pods-DesireFood-DesireFoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood-DesireFoodTests.release.xcconfig"; path = "Target Support Files/Pods-DesireFood-DesireFoodTests/Pods-DesireFood-DesireFoodTests.release.xcconfig"; sourceTree = "<group>"; };
-		54A48FD08B52425994D47537 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "RampartOne-Regular.ttf"; path = "../app/assets/fonts/RampartOne-Regular.ttf"; sourceTree = "<group>"; };
+		54A48FD08B52425994D47537 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RampartOne-Regular.ttf"; path = "../app/assets/fonts/RampartOne-Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DesireFood/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A49B9869C2807DF19CE022 /* Pods-DesireFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood.release.xcconfig"; path = "Target Support Files/Pods-DesireFood/Pods-DesireFood.release.xcconfig"; sourceTree = "<group>"; };
 		9B268ACB89071FC74CE69EF9 /* Pods-DesireFood-DesireFoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood-DesireFoodTests.debug.xcconfig"; path = "Target Support Files/Pods-DesireFood-DesireFoodTests/Pods-DesireFood-DesireFoodTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7451A5DD552228EE25C2557 /* Pods-DesireFood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood.debug.xcconfig"; path = "Target Support Files/Pods-DesireFood/Pods-DesireFood.debug.xcconfig"; sourceTree = "<group>"; };
-		CFC0367DA528477F9F282989 /* Oswald-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-VariableFont_wght.ttf"; path = "../app/assets/fonts/Oswald-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		CFC0367DA528477F9F282989 /* Oswald-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Oswald-VariableFont_wght.ttf"; path = "../app/assets/fonts/Oswald-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,7 +122,6 @@
 				9B268ACB89071FC74CE69EF9 /* Pods-DesireFood-DesireFoodTests.debug.xcconfig */,
 				450F3C4D01AC58DC2EA66F8E /* Pods-DesireFood-DesireFoodTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -167,7 +166,6 @@
 				1DD38A53D986491CA4881613 /* Poppins-Thin.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S59G56G3L2;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DesireFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,6 +535,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S59G56G3L2;
 				INFOPLIST_FILE = DesireFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
