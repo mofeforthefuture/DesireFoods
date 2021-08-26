@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { View, Text } from 'react-native'
-import { COLORS } from '../constants/themes'
+import { COLORS } from '../../constants/themes'
 
 export default function SplachScreen({ navigation }) {
     function goToLogin() {

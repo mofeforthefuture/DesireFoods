@@ -1,10 +1,9 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-// import MapView from '../assets/map.png'
-import MapInputs from '../components/MapInputs'
-import Button from '../components/Button'
-import { COLORS, SIZES } from '../constants/themes'
+import MapInputs from '../../components/MapInputs'
+import Button from '../../components/Button'
+import { COLORS, SIZES } from '../../constants/themes'
 
 
 
@@ -23,19 +22,7 @@ const styles = StyleSheet.create({
 });
 export default function Location({ navigation }) {
     return (
-        // <View style={{ flex: 1 }}>
-        //     <MapView
-        //         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        //         style={{ flex: 1 }}
-        //         region={{
-        //             latitude: 37.78825,
-        //             longitude: -122.4324,
-        //             latitudeDelta: 0.015,
-        //             longitudeDelta: 0.0121,
-        //         }}
-        //     >
-        //     </MapView>
-        // </View>
+
         <>
             <View style={{ flex: 1 }}>
                 {/* <Image source={MapView} style={{ resizeMode: 'cover', height: '70%' }} /> */}
@@ -43,8 +30,8 @@ export default function Location({ navigation }) {
                     provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                     style={styles.map}
                     region={{
-                        latitude: 37.78825,
-                        longitude: -122.4324,
+                        latitude: 6.619638,
+                        longitude: 3.365499,
                         latitudeDelta: 0.015,
                         longitudeDelta: 0.0121,
                     }}
@@ -75,7 +62,7 @@ export default function Location({ navigation }) {
                         backgroundColor={COLORS.white}
                         color={COLORS.red}
                         txt={'Continue'}
-                        onPress={() => navigation.navigate('Main')}
+                        onPress={() => navigation.navigate('BottomTab')}
                     />
                 </View>
             </View>

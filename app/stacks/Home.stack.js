@@ -1,21 +1,19 @@
 import 'react-native-gesture-handler';
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
-import Location from '../pages/appLaunch/Location';
-import BottomTab from './BottomTab.stack';
 import Home from '../pages/Home/Index';
+
 
 
 
 const Stack = createStackNavigator();
 const { Navigator, Screen } = Stack;
 
-export default function Main() {
+export default function HomeScreen() {
     return (
-        <Navigator headerMode='none' initialRouteName="Location">
-            <Screen name="Location" component={Location} />
-            <Screen name="BottomTab" component={BottomTab} />
+        <Navigator headerMode='none' initialRouteName="Home">
             <Screen name="Home" component={Home} />
+
         </Navigator>
     )
 }

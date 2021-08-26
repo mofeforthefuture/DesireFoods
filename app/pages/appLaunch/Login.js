@@ -1,12 +1,15 @@
 import React from 'react'
 import { View, Text, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
-import { COLORS, SIZES } from '../constants/themes'
+import { COLORS, SIZES } from '../../constants/themes'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import Input from '../components/Input'
-import Button from '../components/Button'
+import Input from '../../components/Input'
+import Button from '../../components/Button'
 
 
-export default function Register({ navigation }) {
+
+
+
+export default function Login({ navigation }) {
     return (
         <>
             <SafeAreaView style={{ height: 100, }}></SafeAreaView>
@@ -36,7 +39,7 @@ export default function Register({ navigation }) {
                     fontSize: 40,
                 }}
                 >
-                    Register
+                    Login
                 </Text>
 
 
@@ -49,12 +52,10 @@ export default function Register({ navigation }) {
                     name={'Password'}
                     placeholder={'*******'}
                 />
-                <Input
-                    name={'Confirm Password'}
-                    placeholder={'*******'}
-                />
+                <TouchableOpacity style={{ position: 'relative', alignSelf: 'flex-end', marginRight: '10%' }}>
+                    <Text style={{ color: COLORS.red }}>Forgot password?</Text>
+                </TouchableOpacity>
                 <View style={{ width: '80%', alignItems: 'flex-end', marginTop: SIZES.margin * 2.5 }}>
-
                     <Button
                         top={10}
                         borderRadius={10}
@@ -62,11 +63,12 @@ export default function Register({ navigation }) {
                         height={50}
                         backgroundColor={COLORS.red}
                         color={COLORS.white}
-                        txt={'Register'}
+                        txt={'Login'}
+                        onPress={() => navigation.navigate('Main')}
                     />
-                    <View style={{ width: '100%', marginTop: SIZES.margin * 8, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                        <Text>Already have an account?
-                            <Text onPress={() => navigation.goBack()} style={{ color: COLORS.red }}>Login</Text>
+                    <View style={{ width: '100%', marginTop: '20%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                        <Text>Don't have an account yet?
+                            <Text onPress={() => navigation.navigate('Register')} style={{ color: COLORS.red }}>Register now</Text>
                         </Text>
                     </View>
                 </View>
