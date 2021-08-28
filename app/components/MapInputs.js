@@ -15,7 +15,7 @@ export default function MapInputs({ placeholder, dropDown }) {
             height: 40,
             borderColor: COLORS.black,
             borderStyle: 'solid',
-            borderWidth: 0.5,
+            // borderWidth: 0.5,
             borderRadius: 7,
             flexDirection: 'row',
             justifyContent: 'center',

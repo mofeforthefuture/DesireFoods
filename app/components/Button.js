@@ -26,7 +26,6 @@ export default function Button({ backgroundColor, width, height, borderRadius, t
                     color: color,
 
                 }}>{txt}</Text>
-                {/* <FontAwesomeIcon icon={faCoffee} /> */}
             </TouchableOpacity>
 
         </>
