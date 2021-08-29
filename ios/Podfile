@@ -17,6 +17,7 @@ target 'DesireFood' do
     # Pods for testing
   end
   rn_maps_path = '../node_modules/react-native-maps'
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 pod 'react-native-google-maps', :path => rn_maps_path
 pod 'GoogleMaps'
 pod 'Google-Maps-iOS-Utils'

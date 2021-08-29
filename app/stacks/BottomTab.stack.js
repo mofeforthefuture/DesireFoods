@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHome, faUtensils, faUser } from '@fortawesome/free-solid-svg-icons'
 import User from '../pages/User/Index';
 import { COLORS } from '../constants/themes';
 import Cart from '../pages/Cart/Index';
-import Home from '../pages/Home/Index';
+import HomeScreen from './HomeScreeens.stack';
+// import Home from '../pages/Home/Index';
 
 
 
@@ -28,7 +30,7 @@ export default function BottomTab() {
                     justifyContent: 'center',
                 },
             }}>
-            <Tab.Screen name="Home" component={Home} options={{
+            <Tab.Screen name="Home" component={HomeScreen} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{
                         alignItems: 'center',
@@ -45,13 +47,14 @@ export default function BottomTab() {
                     <TouchableOpacity style={{
                         alignItems: 'center',
                         justifyContent: 'center',
-                        bottom: 15,
+                        bottom: 10,
                         backgroundColor: COLORS.red,
                         width: 60,
                         height: 60,
                         borderRadius: 30,
                     }}>
-                        <FontAwesomeIcon icon={faUtensils} size={20} color={focused ? COLORS.red : COLORS.black} />
+
+                        <FontAwesomeIcon icon={faUtensils} size={20} color={focused ? COLORS.white : COLORS.black} />
 
                     </TouchableOpacity>
                 )

@@ -33,9 +33,16 @@ function Category({ icon, name }) {
     )
 }
 
-function DisplayCards({ url, stars, price, estTime }) {
+function DisplayCards({ url, stars, price, estTime, onPress }) {
     return (
-        <TouchableOpacity style={{ height: 200, width: '44%', backgroundColor: COLORS.lightHarsh, borderRadius: 20, overflow: 'hidden', marginRight: SIZES.margin, marginBottom: SIZES.margin / 2 }}>
+        <TouchableOpacity onPress={onPress} style={{
+            height: 200,
+            width: '44%',
+            backgroundColor: COLORS.lightHarsh,
+            borderRadius: 20, overflow: 'hidden',
+            marginRight: SIZES.margin,
+            marginBottom: SIZES.margin / 2
+        }}>
             <Image source={require(cardimage)} style={{ resizeMode: 'stretch', width: '100%', height: '60%', marginBottom: SIZES.margin / 4 }} />
             <View style={{ flexDirection: 'row' }}>
                 <Text
@@ -84,7 +91,7 @@ function DisplayCards({ url, stars, price, estTime }) {
 
 
 
-export default function Home() {
+export default function Home({ navigation }) {
     return (
         <>
             <SafeAreaView></SafeAreaView>
@@ -185,7 +192,7 @@ export default function Home() {
                     flexDirection: 'row',
                     flexWrap: 'wrap',
                 }} style={{ height: '73%', width: '100%', backgroundColor: COLORS.white, paddingHorizontal: SIZES.padding }}>
-                    <DisplayCards />
+                    <DisplayCards onPress={() => navigation.navigate('mealDisplay')} />
                     <DisplayCards />
                     <DisplayCards />
                     <DisplayCards />
