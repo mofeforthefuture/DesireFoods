@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHome, faUtensils, faUser } from '@fortawesome/free-solid-svg-icons'
@@ -42,14 +42,18 @@ export default function BottomTab() {
 
             <Tab.Screen name="Cart" component={Cart} options={{
                 tabBarIcon: ({ focused }) => (
-                    <View style={{
+                    <TouchableOpacity style={{
                         alignItems: 'center',
                         justifyContent: 'center',
-                        top: 10,
+                        bottom: 15,
+                        backgroundColor: COLORS.red,
+                        width: 60,
+                        height: 60,
+                        borderRadius: 30,
                     }}>
                         <FontAwesomeIcon icon={faUtensils} size={20} color={focused ? COLORS.red : COLORS.black} />
 
-                    </View>
+                    </TouchableOpacity>
                 )
             }} />
             <Tab.Screen name="User" component={User} options={{

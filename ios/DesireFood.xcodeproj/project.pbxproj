@@ -17,6 +17,7 @@
 		ACF79F7B9A6A52B15B92DC23 /* libPods-DesireFood-DesireFoodTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F935ED87C93DAA5E45172CF /* libPods-DesireFood-DesireFoodTests.a */; };
 		C203F2DE41FC4868A8AA6F94 /* Oswald-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CFC0367DA528477F9F282989 /* Oswald-VariableFont_wght.ttf */; };
 		DB41013E310545C3A2A13D5E /* main.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 05F89E09800A4BD3A826F113 /* main.ttf */; };
+		DE1CB9BF4D8E48099AD94EF5 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6EAEA230CF47422695D1F1CD /* Roboto-Medium.ttf */; };
 		FE5255C86D6521EDE78DFBEF /* libPods-DesireFood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7E0AD843BA711EF140B760 /* libPods-DesireFood.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		3B7E0AD843BA711EF140B760 /* libPods-DesireFood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DesireFood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		450F3C4D01AC58DC2EA66F8E /* Pods-DesireFood-DesireFoodTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood-DesireFoodTests.release.xcconfig"; path = "Target Support Files/Pods-DesireFood-DesireFoodTests/Pods-DesireFood-DesireFoodTests.release.xcconfig"; sourceTree = "<group>"; };
 		54A48FD08B52425994D47537 /* RampartOne-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "RampartOne-Regular.ttf"; path = "../app/assets/fonts/RampartOne-Regular.ttf"; sourceTree = "<group>"; };
+		6EAEA230CF47422695D1F1CD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../app/assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DesireFood/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A49B9869C2807DF19CE022 /* Pods-DesireFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood.release.xcconfig"; path = "Target Support Files/Pods-DesireFood/Pods-DesireFood.release.xcconfig"; sourceTree = "<group>"; };
 		9B268ACB89071FC74CE69EF9 /* Pods-DesireFood-DesireFoodTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DesireFood-DesireFoodTests.debug.xcconfig"; path = "Target Support Files/Pods-DesireFood-DesireFoodTests/Pods-DesireFood-DesireFoodTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				CFC0367DA528477F9F282989 /* Oswald-VariableFont_wght.ttf */,
 				05F89E09800A4BD3A826F113 /* main.ttf */,
 				1DD38A53D986491CA4881613 /* Poppins-Thin.ttf */,
+				6EAEA230CF47422695D1F1CD /* Roboto-Medium.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C203F2DE41FC4868A8AA6F94 /* Oswald-VariableFont_wght.ttf in Resources */,
 				DB41013E310545C3A2A13D5E /* main.ttf in Resources */,
 				9979A0982AC8473D83EC3F22 /* Poppins-Thin.ttf in Resources */,
+				DE1CB9BF4D8E48099AD94EF5 /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
