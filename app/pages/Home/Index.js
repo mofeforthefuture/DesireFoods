@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, SafeAreaView, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native'
 import { COLORS, FONTS, SIZES, } from '../../constants/themes'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faMapMarkerAlt, faSearch, faHamburger, faStar, faStopwatch } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faSearch, faHamburger, faStar, faStopwatch, faShoppingBasket } from '@fortawesome/free-solid-svg-icons'
 
 const cardimage = '../../assets/pizza.jpeg'
 
@@ -41,7 +41,7 @@ function DisplayCards({ url, stars, price, estTime, onPress }) {
             backgroundColor: COLORS.lightHarsh,
             borderRadius: 20, overflow: 'hidden',
             marginRight: SIZES.margin,
-            marginBottom: SIZES.margin / 2
+            marginBottom: SIZES.margin
         }}>
             <Image source={require(cardimage)} style={{ resizeMode: 'stretch', width: '100%', height: '60%', marginBottom: SIZES.margin / 4 }} />
             <View style={{ flexDirection: 'row' }}>
@@ -51,6 +51,7 @@ function DisplayCards({ url, stars, price, estTime, onPress }) {
                         fontWeight: '400',
                         fontSize: 15,
                         marginLeft: SIZES.margin / 2.5,
+                        marginBottom: SIZES.margin / 5
                     }}
                 >Pizza</Text>
             </View>
@@ -103,17 +104,33 @@ export default function Home({ navigation }) {
                     width: '100%',
                     height: '7%',
                     backgroundColor: COLORS.white,
-                    justifyContent: 'center',
+                    flexDirection: 'row'
 
 
                 }}>
                     <View style={{
                         flexDirection: 'row',
-                        marginLeft: SIZES.margin
+                        marginLeft: SIZES.margin,
+                        width: '82%'
                     }}>
                         <FontAwesomeIcon icon={faMapMarkerAlt} size={20} color={COLORS.red} />
                         <Text>8,CMD rd, Magodo</Text>
                     </View>
+                    <TouchableOpacity style={{ flexDirection: 'row' }}>
+                        <View style={{
+                            backgroundColor: COLORS.lightblue,
+                            color: COLORS.white, alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: 19,
+                            height: 20,
+                            width: 20,
+                            position: 'relative',
+                            left: 5
+                        }}>
+                            <Text style={{ color: COLORS.white, }}>2</Text>
+                        </View>
+                        <FontAwesomeIcon icon={faShoppingBasket} size={20} color={COLORS.red} />
+                    </TouchableOpacity>
                 </View>
                 <View style={{
                     width: '100%',
@@ -145,10 +162,10 @@ export default function Home({ navigation }) {
                         marginLeft: SIZES.margin,
                         flexDirection: 'row'
                     }}>
-                        <FontAwesomeIcon icon={faSearch} size={20} color={COLORS.red} />
+                        <FontAwesomeIcon icon={faSearch} size={20} color={'#ccc'} />
                         <TextInput
                             placeholder={'Search Meal'}
-                            style={{ fontSize: 16, color: COLORS.lightblue, marginLeft: SIZES.margin / 2 }}
+                            style={{ fontSize: 16, color: COLORS.black, marginLeft: SIZES.margin / 2 }}
                         />
                     </View>
                     <ScrollView horizontal={true} style={{ marginTop: SIZES.margin, marginLeft: SIZES.margin / 2 }}>
