@@ -139,19 +139,7 @@ export default function Home({ navigation }) {
                     justifyContent: 'center',
                     // paddingLeft: SIZES.margin,
                 }}>
-                    {/* <Text
-                        style={{
-                            fontFamily: 'Roboto',
-                            fontWeight: '800',
-                            fontSize: 20,
-                        }}
-                        >Hello Mofe,</Text>
-                        <Text
-                        style={{
-                            fontFamily: 'Poppins-Thin',
-                            fontSize: 15,
-                        }}
-                    >Here are some of our best meals.</Text> */}
+
                     <View style={{
                         backgroundColor: COLORS.lightHarsh,
                         height: 40,
