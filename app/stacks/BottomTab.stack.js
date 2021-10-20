@@ -2,13 +2,11 @@ import * as React from 'react';
 import {View, Text} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faHome, faUtensils, faUser} from '@fortawesome/free-solid-svg-icons';
 import {COLORS} from '../constants/themes';
 import Cart from '../pages/Cart/Index';
 import HomeScreen from './HomeScreeens.stack';
+
 import UserScreens from './User.stack';
-// import Home from '../pages/Home/Index';
 
 const Tab = createBottomTabNavigator();
 

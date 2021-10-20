@@ -5,6 +5,7 @@ import {
   StatusBar,
   TouchableOpacity,
   ImageBackground,
+  StyleSheet,
 } from 'react-native';
 import {COLORS, SIZES} from '../../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -17,12 +18,11 @@ import {
   faStopwatch,
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import Slideshow from 'react-native-image-slider-show';
 import Button from '../../components/Button';
+import Back from '../../components/Back';
 const cardimage = '../../assets/pizza.jpeg';
-const arrow = '../../assets/arrowback.png';
 
-export default function MealDisplay() {
+export default function MealDisplay({navigation}) {
   const [quantity, setQuantity] = useState(1);
   function addQuantity() {
     setQuantity(quantity + 1);
@@ -56,13 +56,7 @@ export default function MealDisplay() {
                 paddingHorizontal: SIZES.margin,
                 marginTop: SIZES.margin * 1.5,
               }}>
-              <TouchableOpacity>
-                <FontAwesomeIcon
-                  icon={faLongArrowAltLeft}
-                  size={25}
-                  color={COLORS.white}
-                />
-              </TouchableOpacity>
+              <Back onPress={() => navigation.goBack()} />
             </View>
           </ImageBackground>
         </View>
@@ -96,7 +90,8 @@ export default function MealDisplay() {
               </Text>
             </View>
           </View>
-          <View
+          <TouchableOpacity
+            onPress={() => navigation.navigate('RestaurantDisplay')}
             style={{flexDirection: 'row', marginVertical: SIZES.margin / 2}}>
             <FontAwesomeIcon
               icon={faMapMarkerAlt}
@@ -111,7 +106,7 @@ export default function MealDisplay() {
               }}>
               Heavens Pride
             </Text>
-          </View>
+          </TouchableOpacity>
           <View style={{flexDirection: 'row', marginBottom: 10}}>
             <FontAwesomeIcon icon={faStopwatch} size={15} color={COLORS.blue} />
             <Text
@@ -157,11 +152,7 @@ export default function MealDisplay() {
             <TouchableOpacity
               onPress={() => minusQuantity()}
               style={{
-                backgroundColor: COLORS.yellow,
-                width: 50,
-                height: 40,
-                alignItems: 'center',
-                justifyContent: 'center',
+                ...style.quantityBtn,
                 borderTopLeftRadius: 5,
                 borderBottomLeftRadius: 5,
               }}>
@@ -169,22 +160,15 @@ export default function MealDisplay() {
             </TouchableOpacity>
             <View
               style={{
+                ...style.quantityBtn,
                 backgroundColor: COLORS.white,
-                width: 50,
-                height: 40,
-                alignItems: 'center',
-                justifyContent: 'center',
               }}>
               <Text>{quantity}</Text>
             </View>
             <TouchableOpacity
               onPress={() => addQuantity()}
               style={{
-                backgroundColor: COLORS.yellow,
-                width: 50,
-                height: 40,
-                alignItems: 'center',
-                justifyContent: 'center',
+                ...style.quantityBtn,
                 borderTopRightRadius: 5,
                 borderBottomRightRadius: 5,
               }}>
@@ -211,3 +195,13 @@ export default function MealDisplay() {
     </>
   );
 }
+
+const style = StyleSheet.create({
+  quantityBtn: {
+    backgroundColor: COLORS.yellow,
+    width: 50,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

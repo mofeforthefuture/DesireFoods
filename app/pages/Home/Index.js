@@ -1,137 +1,16 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ScrollView,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
-import {COLORS, FONTS, SIZES} from '../../constants/themes';
+import React, {useState, useRef} from 'react';
+import {View, SafeAreaView, ScrollView, TextInput} from 'react-native';
+import {COLORS, SIZES} from '../../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {
-  faMapMarkerAlt,
-  faSearch,
-  faHamburger,
-  faStar,
-  faStopwatch,
-  faShoppingBasket,
-} from '@fortawesome/free-solid-svg-icons';
-import Icon from 'react-native-vector-icons/Ionicons';
-import Navbar from '../../components/Navbar';
+import {faSearch} from '@fortawesome/free-solid-svg-icons';
+
+import {Navbar, DisplayCards, Category, MealModal} from '../../components';
 
 const cardimage = '../../assets/pizza.jpeg';
 
-function Category({icon, name}) {
-  const [focus, isFocus] = useState(false);
-  return (
-    <TouchableOpacity
-      onBlur={() => isFocus(true)}
-      style={{
-        width: 50,
-        height: 50,
-        borderRadius: 15,
-        backgroundColor: focus ? COLORS.black : COLORS.lightHarsh,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginRight: SIZES.margin,
-      }}>
-      <Icon name={icon} color={COLORS.red} size={20} />
-      <Text
-        style={{
-          fontFamily: 'Roboto',
-          fontWeight: '400',
-          fontSize: 10,
-        }}>
-        {name}
-      </Text>
-    </TouchableOpacity>
-  );
-}
-
-function DisplayCards({url, stars, price, estTime, onPress}) {
-  return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={{
-        height: 200,
-        width: '44%',
-        backgroundColor: COLORS.lightHarsh,
-        borderRadius: 20,
-        overflow: 'hidden',
-        marginRight: SIZES.margin,
-        marginBottom: SIZES.margin,
-      }}>
-      <Image
-        source={require(cardimage)}
-        style={{
-          resizeMode: 'stretch',
-          width: '100%',
-          height: '60%',
-          marginBottom: SIZES.margin / 4,
-        }}
-      />
-      <View style={{flexDirection: 'row'}}>
-        <Text
-          style={{
-            fontFamily: 'Roboto',
-            fontWeight: '400',
-            fontSize: 15,
-            marginLeft: SIZES.margin / 2.5,
-            marginBottom: SIZES.margin / 5,
-          }}>
-          Pizza
-        </Text>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          marginLeft: SIZES.margin / 2.5,
-          marginBottom: SIZES.margin / 4,
-        }}>
-        <FontAwesomeIcon icon={faMapMarkerAlt} size={15} color={COLORS.red} />
-        <Text
-          style={{
-            fontFamily: 'Poppins-Thin',
-            fontWeight: '400',
-            fontSize: 12,
-          }}>
-          Heavens Pride
-        </Text>
-      </View>
-      <View style={{flexDirection: 'row', marginLeft: SIZES.margin / 2.5}}>
-        <FontAwesomeIcon icon={faStopwatch} size={15} color={COLORS.blue} />
-        <Text
-          style={{
-            fontFamily: 'Poppins-Thin',
-            fontWeight: '400',
-            fontSize: 12,
-          }}>
-          30min
-        </Text>
-        <View
-          style={{
-            position: 'relative',
-            flexDirection: 'row',
-            marginLeft: SIZES.margin * 2,
-          }}>
-          <FontAwesomeIcon icon={faStar} size={15} color={COLORS.red} />
-          <Text
-            style={{
-              fontFamily: 'Poppins-Thin',
-              fontWeight: '400',
-              fontSize: 15,
-            }}>
-            4.8
-          </Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-}
-
-export default function Home({navigation}) {
+export default function Index({navigation}) {
+  const [display, setDisplay] = useState('Card');
+  const modalizeRef = useRef(null);
   return (
     <>
       <SafeAreaView></SafeAreaView>
@@ -146,7 +25,6 @@ export default function Home({navigation}) {
             height: '20%',
             backgroundColor: COLORS.white,
             justifyContent: 'center',
-            // paddingLeft: SIZES.margin,
           }}>
           <View
             style={{
@@ -197,13 +75,17 @@ export default function Home({navigation}) {
             backgroundColor: COLORS.white,
             paddingHorizontal: SIZES.padding,
           }}>
-          <DisplayCards onPress={() => navigation.navigate('mealDisplay')} />
-          <DisplayCards />
-          <DisplayCards />
-          <DisplayCards />
-          <DisplayCards />
-          <DisplayCards />
+          <DisplayCards
+            image={require(cardimage)}
+            onPress={() => modalizeRef.current?.open()}
+          />
+          <DisplayCards image={require(cardimage)} />
+          <DisplayCards image={require(cardimage)} />
+          <DisplayCards image={require(cardimage)} />
+          <DisplayCards image={require(cardimage)} />
+          <DisplayCards image={require(cardimage)} />
         </ScrollView>
+        <MealModal ref={modalizeRef} />
       </View>
     </>
   );

@@ -1,12 +1,57 @@
 import React, {useRef} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import {COLORS, FONTS, SIZES} from '../../constants/themes';
 import Button from '../../components/Button';
 import {useState} from 'react/cjs/react.development';
 
+function MenuItems({
+  name,
+  onPress,
+  borderBottomWidth,
+  borderTopWidth,
+  icon,
+  iconColor,
+}) {
+  return (
+    <TouchableOpacity
+      style={{
+        ...style.displayDetails,
+        borderBottomWidth: borderBottomWidth ? 1 : 0,
+        borderTopWidth: borderTopWidth ? 1 : 0,
+      }}
+      onPress={onPress}>
+      <View
+        style={{flexDirection: 'row', height: '100%', alignItems: 'center'}}>
+        {icon ? (
+          <View
+            style={{
+              width: 30,
+              height: 30,
+              borderRadius: 15,
+              backgroundColor: iconColor ? iconColor : COLORS.red,
+              marginRight: 10,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Icon name={icon} color={COLORS.white} size={20} />
+          </View>
+        ) : (
+          <></>
+        )}
+        <Text>{name}</Text>
+      </View>
+      <Icon name="chevron-forward-outline" color={COLORS.blue} size={20} />
+    </TouchableOpacity>
+  );
+}
 function CardDet() {
   return (
     <View
@@ -15,11 +60,11 @@ function CardDet() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <View style={style.displayDetails}>
+      <View style={{...style.displayDetails, backgroundColor: '#fff'}}>
         <Text>Card Number</Text>
         <Text>****************1398</Text>
       </View>
-      <View style={style.displayDetails}>
+      <View style={{...style.displayDetails, backgroundColor: '#fff'}}>
         <Text>Expiry date</Text>
         <Text>12/21</Text>
       </View>
@@ -54,11 +99,11 @@ function UserDet() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <View style={style.displayDetails}>
+      <View style={{...style.displayDetails, backgroundColor: '#fff'}}>
         <Text>Phone Number</Text>
         <Text>09097991398</Text>
       </View>
-      <View style={style.displayDetails}>
+      <View style={{...style.displayDetails, backgroundColor: '#fff'}}>
         <Text>Email</Text>
         <Text>eyimofeomotayo@gmail.com</Text>
       </View>
@@ -101,44 +146,89 @@ export default function User() {
   return (
     <View style={style.container}>
       <SafeAreaView></SafeAreaView>
-      <View style={style.profile}>
-        <TouchableOpacity style={style.image}>
-          <Icon name="person-outline" color={COLORS.black} size={50} />
-        </TouchableOpacity>
-        <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
-          Eyimofe Omotayo
-        </Text>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'space-between',
+        }}>
+        <View>
+          <View style={style.profile}>
+            <TouchableOpacity style={style.image}>
+              <Icon name="person-outline" color={COLORS.black} size={50} />
+            </TouchableOpacity>
+            <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
+              Eyimofe Omotayo
+            </Text>
+          </View>
+          <MenuItems
+            name={'Profile'}
+            icon={'person-outline'}
+            iconColor={COLORS.purple}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Details');
+              modalizeRef.current?.open();
+            }}
+          />
+          <MenuItems
+            name={'Card Details'}
+            icon={'card-outline'}
+            iconColor={COLORS.orange}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Card');
+              modalizeRef.current?.open();
+            }}
+          />
+          <MenuItems
+            name={'Wallet'}
+            icon={'wallet-outline'}
+            iconColor={COLORS.blue}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Card');
+              modalizeRef.current?.open();
+            }}
+          />
+          <MenuItems
+            name={'Order History'}
+            icon={'restaurant-outline'}
+            iconColor={COLORS.black}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Card');
+              modalizeRef.current?.open();
+            }}
+          />
+        </View>
+        <View style={{marginBottom: 40}}>
+          <MenuItems
+            name={'Settings'}
+            icon={'cog-outline'}
+            iconColor={COLORS.blue}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Card');
+              modalizeRef.current?.open();
+            }}
+          />
+          <MenuItems
+            name={'Logout'}
+            icon={'exit-outline'}
+            borderBottomWidth
+            onPress={() => {
+              setDisplay('Card');
+              modalizeRef.current?.open();
+            }}
+          />
+        </View>
       </View>
-      <TouchableOpacity
-        style={style.displayDetails}
-        onPress={() => {
-          setDisplay('Display');
-          modalizeRef.current?.open();
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Text>My Details</Text>
-        </View>
-        <Icon name="chevron-forward-outline" color={COLORS.black} size={20} />
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={style.displayDetails}
-        onPress={() => {
-          setDisplay('Card');
-          modalizeRef.current?.open();
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Text>Card Details</Text>
-        </View>
-        <Icon name="chevron-forward-outline" color={COLORS.black} size={20} />
-      </TouchableOpacity>
-      <TouchableOpacity style={style.displayDetails}>
-        <Text>History</Text>
-        <Icon name="chevron-forward-outline" color={COLORS.black} size={20} />
-      </TouchableOpacity>
-
       <Modalize
         modalHeight={SIZES.height / 1.6}
-        overlayStyle={{backgroundColor: 'rgba(35, 52, 93, 0.8)', opacity: 0.6}}
+        overlayStyle={{
+          backgroundColor: 'rgba(35, 52, 93, 0.8)',
+          opacity: 0.6,
+        }}
         modalStyle={{
           backgroundColor: COLORS.white,
           borderTopLeftRadius: 40,
@@ -179,6 +269,7 @@ const style = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     width: '100%',
+    backgroundColor: '#fff',
   },
   profile: {
     width: '100%',
@@ -193,7 +284,7 @@ const style = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: '#fff',
+    backgroundColor: '#ccc',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
@@ -207,5 +298,6 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 5,
+    backgroundColor: COLORS.lightHarsh,
   },
 });
