@@ -25,7 +25,7 @@ export default function MealModal({image, ref}) {
         }}
         scrollViewProps={{showsVerticalScrollIndicator: false}}
         snapPoint={SIZES.height / 1.3}
-        ref={modalizeRef}
+        ref={ref}
         HeaderComponent={
           <View
             style={{
