@@ -6,8 +6,10 @@ import {
   TextInput,
   Image,
   Text,
+  TouchableOpacity,
+  StyleSheet,
 } from 'react-native';
-import {COLORS, SIZES} from '../../constants/themes';
+import {COLORS, FONTS, SIZES} from '../../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Modalize} from 'react-native-modalize';
@@ -15,6 +17,8 @@ import {
   faSearch,
   faMapMarkerAlt,
   faStopwatch,
+  faMinus,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {Navbar, DisplayCards, Category, Button} from '../../components';
@@ -137,71 +141,125 @@ export default function Index({navigation}) {
             <View
               style={{
                 width: SIZES.width,
+                paddingTop: SIZES.padding / 2,
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              <View style={{flexDirection: 'row'}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  width: SIZES.width,
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}>
                 <Text
                   style={{
                     fontFamily: 'Roboto',
                     fontWeight: '400',
-                    fontSize: 15,
+                    fontSize: 30,
                     marginLeft: SIZES.margin / 2.5,
-                    marginBottom: SIZES.margin / 5,
+                    marginBottom: SIZES.margin / 10,
                   }}>
                   Pizza
                 </Text>
+
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginLeft: SIZES.margin / 2.5,
+                  }}>
+                  <TouchableOpacity>
+                    <Icon name={'heart'} color={COLORS.red} size={50} />
+                  </TouchableOpacity>
+                </View>
               </View>
               <View
                 style={{
                   flexDirection: 'row',
+                  width: SIZES.width,
                   marginLeft: SIZES.margin / 2.5,
                   marginBottom: SIZES.margin / 4,
                 }}>
                 <FontAwesomeIcon
                   icon={faMapMarkerAlt}
-                  size={15}
+                  size={25}
                   color={COLORS.red}
                 />
                 <Text
                   style={{
                     fontFamily: 'Poppins-Thin',
                     fontWeight: '400',
-                    fontSize: 12,
+                    fontSize: 22,
                   }}>
                   Heavens Pride
                 </Text>
               </View>
               <View
-                style={{flexDirection: 'row', marginLeft: SIZES.margin / 2.5}}>
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  marginLeft: SIZES.margin / 2.5,
+                  width: SIZES.width,
+                }}>
                 <FontAwesomeIcon
                   icon={faStopwatch}
-                  size={15}
+                  size={22}
                   color={COLORS.blue}
                 />
                 <Text
                   style={{
                     fontFamily: 'Poppins-Thin',
                     fontWeight: '400',
-                    fontSize: 12,
+                    fontSize: 22,
                   }}>
                   30min
                 </Text>
+              </View>
+
+              <View
+                style={{
+                  flexDirection: 'row',
+                  width: 160,
+                  marginBottom: SIZES.margin,
+                }}>
+                <TouchableOpacity
+                  style={{
+                    ...style.quantityBtn,
+                    borderTopLeftRadius: 5,
+                    borderBottomLeftRadius: 5,
+                  }}>
+                  <FontAwesomeIcon
+                    icon={faMinus}
+                    size={15}
+                    color={COLORS.white}
+                  />
+                </TouchableOpacity>
                 <View
                   style={{
-                    position: 'relative',
-                    flexDirection: 'row',
-                    marginLeft: SIZES.margin * 2,
+                    ...style.quantityBtn,
+                    backgroundColor: COLORS.white,
                   }}>
-                  <Icon name={'heart'} color={COLORS.red} size={50} />
+                  <Text style={{...SIZES.body1}}>6</Text>
                 </View>
+                <TouchableOpacity
+                  style={{
+                    ...style.quantityBtn,
+                    borderTopRightRadius: 5,
+                    borderBottomRightRadius: 5,
+                  }}>
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    size={15}
+                    color={COLORS.white}
+                  />
+                </TouchableOpacity>
               </View>
               <Button
                 top={10}
                 borderRadius={10}
                 width={'95%'}
                 height={50}
-                backgroundColor={COLORS.yellow}
+                backgroundColor={COLORS.black}
                 color={COLORS.white}
                 txt={`Add (6) to basket`}
               />
@@ -212,3 +270,13 @@ export default function Index({navigation}) {
     </>
   );
 }
+
+const style = StyleSheet.create({
+  quantityBtn: {
+    backgroundColor: COLORS.black,
+    width: 50,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

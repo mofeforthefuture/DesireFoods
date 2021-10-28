@@ -11,7 +11,15 @@ const {Navigator, Screen} = Stack;
 export default function Main() {
   return (
     <Navigator headerMode="none" initialRouteName="Location">
-      <Screen name="Location" component={Location} />
+      <Screen
+        name="Location"
+        component={Location}
+        options={{
+          navigationOptions: {
+            gesturesEnabled: false,
+          },
+        }}
+      />
       <Screen name="BottomTab" component={BottomTab} />
     </Navigator>
   );

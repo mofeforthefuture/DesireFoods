@@ -8,6 +8,8 @@ export default function Cart() {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-      }}></View>
+      }}>
+        
+      </View>
   );
 }
