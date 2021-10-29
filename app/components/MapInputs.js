@@ -1,10 +1,6 @@
 import React from 'react'
-import { View, Text, SafeAreaView, TextInput } from 'react-native'
-// import Geolocation from 'react-native-geolocation-service';
+import { View, TextInput } from 'react-native'
 import { COLORS, SIZES } from '../constants/themes'
-
-
-
 
 
 export default function MapInputs({ placeholder, dropDown }) {
