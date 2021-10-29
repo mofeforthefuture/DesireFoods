@@ -4,7 +4,14 @@ import {COLORS, SIZES} from '../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 
-export default function Input({name, placeholder, onBlur, onChangeText}) {
+export default function Input({
+  name,
+  placeholder,
+  onBlur,
+  onChangeText,
+  secureTextEntry,
+  value,
+}) {
   return (
     <>
       <View
@@ -42,6 +49,7 @@ export default function Input({name, placeholder, onBlur, onChangeText}) {
           <TextInput
             placeholder={placeholder}
             placeholderTextColor={COLORS.gray}
+            secureTextEntry={secureTextEntry}
             autoCapitalize={'none'}
             style={{
               color: COLORS.black,
