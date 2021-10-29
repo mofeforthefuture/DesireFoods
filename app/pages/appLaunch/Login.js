@@ -19,7 +19,7 @@ export default function Login({navigation}) {
   useEffect(() => {
     auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.navigate('BottomTab');
+        navigation.replace('Main', {screen: 'BottomTab'});
       }
     });
   }, []);
@@ -30,7 +30,7 @@ export default function Login({navigation}) {
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('res', user);
-        navigation.navigate('BottomTab');
+        navigation.replace('Main', {screen: 'BottomTab'});
       })
       .catch(err => console.log('Error', err));
     resetForm();
