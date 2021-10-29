@@ -13,6 +13,7 @@ import {COLORS, FONTS, SIZES} from '../../constants/themes';
 import Button from '../../components/Button';
 import {useState} from 'react/cjs/react.development';
 import {NavigationContainer} from '@react-navigation/native';
+import {auth} from '../../Firebase';
 
 function MenuItems({
   name,
@@ -145,6 +146,14 @@ function UserDet() {
 export default function User({navigation}) {
   const [display, setDisplay] = useState('');
   const modalizeRef = useRef(null);
+  const handleLogout = () => {
+    auth
+      .signOut()
+      .then(() => {
+        navigation.replace('AppFirstLaunch', {screen: 'Login'});
+      })
+      .catch(err => console.log(err));
+  };
   return (
     <View style={style.container}>
       <SafeAreaView></SafeAreaView>
@@ -161,7 +170,7 @@ export default function User({navigation}) {
                 <Icon name="person-outline" color={COLORS.black} size={50} />
               </TouchableOpacity>
               <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
-                Eyimofe Omotayo
+                {auth.currentUser?.email}
               </Text>
             </View>
             <MenuItems
@@ -210,9 +219,7 @@ export default function User({navigation}) {
               name={'Logout'}
               icon={'exit-outline'}
               borderBottomWidth
-              onPress={() =>
-                navigation.replace('AppFirstLaunch', {screen: 'Login'})
-              }
+              onPress={() => handleLogout()}
             />
           </View>
         </ScrollView>

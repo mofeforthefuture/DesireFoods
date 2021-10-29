@@ -17,11 +17,12 @@ import {auth} from '../../Firebase';
 
 export default function Login({navigation}) {
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         navigation.replace('Main', {screen: 'BottomTab'});
       }
     });
+    return unsubscribe;
   }, []);
   const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = (email, password, resetForm) => {
