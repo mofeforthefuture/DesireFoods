@@ -6,6 +6,7 @@ import {
   Image,
   ImageBackground,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS, SIZES} from '../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {
@@ -14,14 +15,7 @@ import {
   faStopwatch,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function DisplayCards({
-  url,
-  stars,
-  price,
-  estTime,
-  onPress,
-  image,
-}) {
+export default function DisplayCards({onPress, image}) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -61,7 +55,7 @@ export default function DisplayCards({
           marginLeft: SIZES.margin / 2.5,
           marginBottom: SIZES.margin / 4,
         }}>
-        <FontAwesomeIcon icon={faMapMarkerAlt} size={15} color={COLORS.red} />
+        <Icon name={'location-outline'} color={COLORS.red} size={15} />
         <Text
           style={{
             fontFamily: 'Poppins-Thin',
@@ -71,30 +65,36 @@ export default function DisplayCards({
           Heavens Pride
         </Text>
       </View>
-      <View style={{flexDirection: 'row', marginLeft: SIZES.margin / 2.5}}>
-        <FontAwesomeIcon icon={faStopwatch} size={15} color={COLORS.blue} />
-        <Text
-          style={{
-            fontFamily: 'Poppins-Thin',
-            fontWeight: '400',
-            fontSize: 12,
-          }}>
-          30min
-        </Text>
-        <View
-          style={{
-            position: 'relative',
-            flexDirection: 'row',
-            marginLeft: SIZES.margin * 2,
-          }}>
-          <FontAwesomeIcon icon={faStar} size={15} color={COLORS.red} />
+      <View
+        style={{
+          flexDirection: 'row',
+          paddingHorizontal: SIZES.margin / 2.5,
+          justifyContent: 'space-between',
+        }}>
+        <View style={{flexDirection: 'row'}}>
+          <Icon name={'stopwatch'} color={COLORS.blue} size={15} />
           <Text
             style={{
               fontFamily: 'Poppins-Thin',
               fontWeight: '400',
+              fontSize: 12,
+            }}>
+            30min
+          </Text>
+        </View>
+        <View
+          style={{
+            position: 'relative',
+            flexDirection: 'row',
+          }}>
+          <Icon name={'cash'} color={COLORS.green} size={15} />
+          <Text
+            style={{
+              fontFamily: 'Poppins-Thin',
+              fontWeight: '700',
               fontSize: 15,
             }}>
-            4.8
+            ₦ 4,800
           </Text>
         </View>
       </View>

@@ -7,6 +7,8 @@ import Navbar from './Navbar';
 import PlainInputs from './PlainInputs';
 import Category from './Category';
 import MealModal from './MealModal';
+import NotificationCard from './NotificationCard';
+import CheckoutCard from './CheckoutCard';
 
 export {
   Back,
@@ -18,4 +20,6 @@ export {
   PlainInputs,
   Category,
   MealModal,
+  NotificationCard,
+  CheckoutCard,
 };

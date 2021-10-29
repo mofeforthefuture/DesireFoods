@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,12 +6,26 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {Formik} from 'formik';
+import * as Animatable from 'react-native-animatable';
 import {COLORS, SIZES} from '../../constants/themes';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import {loginSchema} from '../../helpers/Schemas';
 
 export default function Login({navigation}) {
+  const [errorMessage, setErrorMessage] = useState('');
+  const handleSubmit = (email, password, resetForm) => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('res', user);
+      })
+      .catch(err => console.log('Error', err));
+    resetForm();
+  };
   return (
     <>
       <SafeAreaView style={{height: 100}}></SafeAreaView>
@@ -46,52 +60,115 @@ export default function Login({navigation}) {
           }}>
           Login
         </Text>
-
-        <Input name={'Number'} placeholder={'08123456789'} />
-
-        <Input name={'Password'} placeholder={'*******'} />
-        <TouchableOpacity
-          style={{
-            position: 'relative',
-            alignSelf: 'flex-end',
-            marginRight: '10%',
+        <Formik
+          validateOnMount={true}
+          validationSchema={loginSchema}
+          initialValues={{
+            email: '',
+            password: '',
+          }}
+          onSubmit={(payload, {resetForm}) => {
+            handleSubmit(payload.email, payload.password, resetForm);
+            console.log(payload);
           }}>
-          <Text style={{color: COLORS.red}}>Forgot password?</Text>
-        </TouchableOpacity>
-        <View
-          style={{
-            width: '80%',
-            alignItems: 'flex-end',
-            marginTop: SIZES.margin * 2.5,
-          }}>
-          <Button
-            top={10}
-            borderRadius={10}
-            width={'100%'}
-            height={50}
-            backgroundColor={COLORS.red}
-            color={COLORS.white}
-            txt={'Login'}
-            onPress={() => navigation.replace('Main')}
-          />
-          <View
-            style={{
-              width: '100%',
-              marginTop: '20%',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text>
-              Don't have an account yet?
-              <Text
-                onPress={() => navigation.replace('Register')}
-                style={{color: COLORS.red}}>
-                Register now
-              </Text>
-            </Text>
-          </View>
-        </View>
+          {({
+            handleChange,
+            handleSubmit,
+            values,
+            setFieldTouched,
+            setFieldValue,
+            errors,
+            touched,
+          }) => (
+            <>
+              <View style={{width: SIZES.width, alignItems: 'center'}}>
+                {errorMessage ? (
+                  <Animatable.Text
+                    animation="bounceInLeft"
+                    style={{
+                      color: COLORS.red,
+                      margin: SIZES.margin / 4,
+                    }}>
+                    {errorMessage}
+                  </Animatable.Text>
+                ) : (
+                  <></>
+                )}
+                <Input
+                  name={'Email'}
+                  placeholder={'kemi@gmail.com'}
+                  onBlur={() => setFieldTouched('email')}
+                  onChangeText={handleChange('email')}
+                />
+                {errors.email && touched.email && (
+                  <View style={{width: '80%'}}>
+                    <Animatable.Text
+                      animation="bounceInLeft"
+                      style={{
+                        color: COLORS.red,
+                        margin: SIZES.margin / 10,
+                      }}>
+                      {errors.email}
+                    </Animatable.Text>
+                  </View>
+                )}
+
+                <Input
+                  name={'Password'}
+                  placeholder={'*******'}
+                  onBlur={() => setFieldTouched('password')}
+                  onChangeText={handleChange('password')}
+                />
+                {errors.password && touched.password && (
+                  <View style={{width: '80%'}}>
+                    <Animatable.Text
+                      animation="bounceInLeft"
+                      style={{
+                        color: COLORS.red,
+                        margin: SIZES.margin / 10,
+                      }}>
+                      {errors.password}
+                    </Animatable.Text>
+                  </View>
+                )}
+                <View
+                  style={{
+                    width: '80%',
+                    alignItems: 'flex-end',
+                    marginTop: SIZES.margin * 2.5,
+                  }}>
+                  <Button
+                    top={10}
+                    borderRadius={10}
+                    width={'100%'}
+                    height={50}
+                    backgroundColor={COLORS.red}
+                    color={COLORS.white}
+                    txt={'Register'}
+                    onPress={handleSubmit}
+                  />
+                </View>
+                <View
+                  style={{
+                    width: '100%',
+                    marginTop: SIZES.margin * 8,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <Text>
+                    Already have an account?
+                    <Text
+                      onPress={() => navigation.navigate('Login')}
+                      style={{color: COLORS.red}}>
+                      Login
+                    </Text>
+                  </Text>
+                </View>
+              </View>
+            </>
+          )}
+        </Formik>
       </View>
     </>
   );

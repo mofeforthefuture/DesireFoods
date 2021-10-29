@@ -53,6 +53,7 @@ export const SIZES = {
   body2: 22,
   body3: 16,
   body4: 14,
+  small1: width < 361 ? 8 : 10,
 
   // app dimensions
   width,

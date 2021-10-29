@@ -27,6 +27,8 @@ const cardimage = '../../assets/pizza.jpeg';
 
 export default function Index({navigation}) {
   const [display, setDisplay] = useState('Card');
+  const [isLiked, setIsLiked] = useState(false);
+  const [quantity, setQuantity] = useState(0);
   const modalizeRef = useRef(null);
   return (
     <>
@@ -35,7 +37,7 @@ export default function Index({navigation}) {
         style={{
           flex: 1,
         }}>
-        <Navbar />
+        <Navbar onPress={() => navigation.navigate('notifications')} />
         <View
           style={{
             width: '100%',
@@ -157,7 +159,7 @@ export default function Index({navigation}) {
                     fontFamily: 'Roboto',
                     fontWeight: '400',
                     fontSize: 30,
-                    marginLeft: SIZES.margin / 2.5,
+                    marginLeft: SIZES.margin / 2,
                     marginBottom: SIZES.margin / 10,
                   }}>
                   Pizza
@@ -166,10 +168,14 @@ export default function Index({navigation}) {
                 <View
                   style={{
                     flexDirection: 'row',
-                    marginLeft: SIZES.margin / 2.5,
+                    marginHorizontal: SIZES.margin / 2,
                   }}>
-                  <TouchableOpacity>
-                    <Icon name={'heart'} color={COLORS.red} size={50} />
+                  <TouchableOpacity onPress={() => setIsLiked(!isLiked)}>
+                    <Icon
+                      name={isLiked ? 'heart' : 'heart-outline'}
+                      color={COLORS.red}
+                      size={40}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -177,7 +183,7 @@ export default function Index({navigation}) {
                 style={{
                   flexDirection: 'row',
                   width: SIZES.width,
-                  marginLeft: SIZES.margin / 2.5,
+                  paddingHorizontal: SIZES.margin / 2.5,
                   marginBottom: SIZES.margin / 4,
                 }}>
                 <FontAwesomeIcon
@@ -198,7 +204,7 @@ export default function Index({navigation}) {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
-                  marginLeft: SIZES.margin / 2.5,
+                  paddingHorizontal: SIZES.margin / 2.5,
                   width: SIZES.width,
                 }}>
                 <FontAwesomeIcon
@@ -223,15 +229,20 @@ export default function Index({navigation}) {
                   marginBottom: SIZES.margin,
                 }}>
                 <TouchableOpacity
+                  onPress={() => {
+                    if (quantity > 0) {
+                      setQuantity(quantity - 1);
+                    }
+                  }}
                   style={{
                     ...style.quantityBtn,
                     borderTopLeftRadius: 5,
                     borderBottomLeftRadius: 5,
                   }}>
-                  <FontAwesomeIcon
-                    icon={faMinus}
-                    size={15}
+                  <Icon
+                    name={'remove-outline'}
                     color={COLORS.white}
+                    size={40}
                   />
                 </TouchableOpacity>
                 <View
@@ -239,19 +250,16 @@ export default function Index({navigation}) {
                     ...style.quantityBtn,
                     backgroundColor: COLORS.white,
                   }}>
-                  <Text style={{...SIZES.body1}}>6</Text>
+                  <Text style={{...SIZES.body1}}>{quantity}</Text>
                 </View>
                 <TouchableOpacity
+                  onPress={() => setQuantity(quantity + 1)}
                   style={{
                     ...style.quantityBtn,
                     borderTopRightRadius: 5,
                     borderBottomRightRadius: 5,
                   }}>
-                  <FontAwesomeIcon
-                    icon={faPlus}
-                    size={15}
-                    color={COLORS.white}
-                  />
+                  <Icon name={'add-outline'} color={COLORS.white} size={40} />
                 </TouchableOpacity>
               </View>
               <Button
@@ -261,7 +269,7 @@ export default function Index({navigation}) {
                 height={50}
                 backgroundColor={COLORS.black}
                 color={COLORS.white}
-                txt={`Add (6) to basket`}
+                txt={`Add (${quantity}) to basket`}
               />
             </View>
           </View>

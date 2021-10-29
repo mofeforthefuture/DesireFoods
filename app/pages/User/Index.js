@@ -5,12 +5,14 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import {Modalize} from 'react-native-modalize';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS, FONTS, SIZES} from '../../constants/themes';
 import Button from '../../components/Button';
 import {useState} from 'react/cjs/react.development';
+import {NavigationContainer} from '@react-navigation/native';
 
 function MenuItems({
   name,
@@ -140,88 +142,80 @@ function UserDet() {
   );
 }
 
-export default function User() {
+export default function User({navigation}) {
   const [display, setDisplay] = useState('');
   const modalizeRef = useRef(null);
   return (
     <View style={style.container}>
       <SafeAreaView></SafeAreaView>
+
       <View
         style={{
           flex: 1,
           justifyContent: 'space-between',
         }}>
-        <View>
-          <View style={style.profile}>
-            <TouchableOpacity style={style.image}>
-              <Icon name="person-outline" color={COLORS.black} size={50} />
-            </TouchableOpacity>
-            <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
-              Eyimofe Omotayo
-            </Text>
+        <ScrollView style={{height: SIZES.height, width: SIZES.width}}>
+          <View style={{marginBottom: SIZES.margin * 3}}>
+            <View style={style.profile}>
+              <TouchableOpacity style={style.image}>
+                <Icon name="person-outline" color={COLORS.black} size={50} />
+              </TouchableOpacity>
+              <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
+                Eyimofe Omotayo
+              </Text>
+            </View>
+            <MenuItems
+              name={'Profile'}
+              icon={'person-outline'}
+              iconColor={COLORS.purple}
+              borderBottomWidth
+              onPress={() => {
+                setDisplay('Details');
+                modalizeRef.current?.open();
+              }}
+            />
+            <MenuItems
+              name={'Card Details'}
+              icon={'card-outline'}
+              iconColor={COLORS.orange}
+              borderBottomWidth
+              onPress={() => {
+                setDisplay('Card');
+                modalizeRef.current?.open();
+              }}
+            />
+            <MenuItems
+              name={'Wallet'}
+              icon={'wallet-outline'}
+              iconColor={COLORS.blue}
+              borderBottomWidth
+              onPress={() => {
+                setDisplay('Card');
+                modalizeRef.current?.open();
+              }}
+            />
+            <MenuItems
+              name={'Order History'}
+              icon={'restaurant-outline'}
+              iconColor={COLORS.black}
+              borderBottomWidth
+              onPress={() => {
+                setDisplay('Card');
+                modalizeRef.current?.open();
+              }}
+            />
           </View>
-          <MenuItems
-            name={'Profile'}
-            icon={'person-outline'}
-            iconColor={COLORS.purple}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Details');
-              modalizeRef.current?.open();
-            }}
-          />
-          <MenuItems
-            name={'Card Details'}
-            icon={'card-outline'}
-            iconColor={COLORS.orange}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Card');
-              modalizeRef.current?.open();
-            }}
-          />
-          <MenuItems
-            name={'Wallet'}
-            icon={'wallet-outline'}
-            iconColor={COLORS.blue}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Card');
-              modalizeRef.current?.open();
-            }}
-          />
-          <MenuItems
-            name={'Order History'}
-            icon={'restaurant-outline'}
-            iconColor={COLORS.black}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Card');
-              modalizeRef.current?.open();
-            }}
-          />
-        </View>
-        <View style={{marginBottom: 40}}>
-          <MenuItems
-            name={'Settings'}
-            icon={'cog-outline'}
-            iconColor={COLORS.blue}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Card');
-              modalizeRef.current?.open();
-            }}
-          />
-          <MenuItems
-            name={'Logout'}
-            icon={'exit-outline'}
-            borderBottomWidth
-            onPress={() => {
-              setDisplay('Card');
-              modalizeRef.current?.open();
-            }}
-          />
-        </View>
+          <View>
+            <MenuItems
+              name={'Logout'}
+              icon={'exit-outline'}
+              borderBottomWidth
+              onPress={() =>
+                navigation.replace('AppFirstLaunch', {screen: 'Login'})
+              }
+            />
+          </View>
+        </ScrollView>
       </View>
       <Modalize
         modalHeight={SIZES.height / 1.6}
