@@ -26,6 +26,7 @@ export default function Login({navigation}) {
   }, []);
   const [errorMessage, setErrorMessage] = useState('');
   const handleSubmit = (email, password, resetForm) => {
+    setErrorMessage('');
     auth
       .signInWithEmailAndPassword(email, password)
       .then(userCredentials => {
@@ -33,7 +34,7 @@ export default function Login({navigation}) {
         console.log('res', user);
         navigation.replace('Main', {screen: 'BottomTab'});
       })
-      .catch(err => console.log('Error', err));
+      .catch(err => setErrorMessage(err.message));
     resetForm();
   };
   return (
@@ -87,7 +88,6 @@ export default function Login({navigation}) {
               handleSubmit,
               values,
               setFieldTouched,
-              setFieldValue,
               errors,
               touched,
             }) => (
@@ -110,6 +110,7 @@ export default function Login({navigation}) {
                     placeholder={'kemi@gmail.com'}
                     onBlur={() => setFieldTouched('email')}
                     onChangeText={handleChange('email')}
+                    value={values.email}
                   />
                   {errors.email && touched.email && (
                     <View style={{width: '80%'}}>
@@ -128,6 +129,7 @@ export default function Login({navigation}) {
                     name={'Password'}
                     placeholder={'*******'}
                     onBlur={() => setFieldTouched('password')}
+                    value={values.password}
                     onChangeText={handleChange('password')}
                     secureTextEntry={true}
                   />

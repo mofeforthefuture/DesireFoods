@@ -17,6 +17,7 @@ export default function Register({navigation}) {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const handleSubmit = (email, password, resetForm) => {
+    setErrorMessage('');
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(userCredentials => {
@@ -24,7 +25,7 @@ export default function Register({navigation}) {
         setSuccessMessage('Registration Successful');
         console.log('res', user);
       })
-      .catch(err => console.log('Error', err));
+      .catch(err => setErrorMessage(err.message));
     resetForm();
   };
   return (
