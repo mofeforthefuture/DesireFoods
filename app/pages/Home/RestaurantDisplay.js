@@ -19,6 +19,7 @@ import {
   faMapMarkerAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../components/Button';
+import accounting from 'accounting';
 import Back from '../../components/Back';
 const cardimage = '../../assets/restaurantPicture.jpeg';
 const logo = '../../assets/restaurantLogo.jpeg';

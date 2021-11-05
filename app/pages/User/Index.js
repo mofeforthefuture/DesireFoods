@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {Modalize} from 'react-native-modalize';
+import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {COLORS, FONTS, SIZES} from '../../constants/themes';
 import Button from '../../components/Button';
@@ -145,6 +146,7 @@ function UserDet() {
 
 export default function User({navigation}) {
   const [display, setDisplay] = useState('');
+  const [isModalVisible, setModalVisible] = useState(false);
   const modalizeRef = useRef(null);
   const handleLogout = () => {
     auth
@@ -157,7 +159,28 @@ export default function User({navigation}) {
   return (
     <View style={style.container}>
       <SafeAreaView></SafeAreaView>
-
+      <Modal isVisible={isModalVisible}>
+        <SafeAreaView></SafeAreaView>
+        <View
+          style={{
+            height: 40,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}>
+          <TouchableOpacity onPress={() => setModalVisible(false)}>
+            <Icon name={'close-outline'} color={COLORS.white} size={40} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => selectImage()}>
+            <Icon name={'pencil-outline'} color={COLORS.white} size={30} />
+          </TouchableOpacity>
+        </View>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <View
+            style={{height: SIZES.height / 3, backgroundColor: COLORS.white}}>
+            <Text>I am the modal content!</Text>
+          </View>
+        </View>
+      </Modal>
       <View
         style={{
           flex: 1,
@@ -166,7 +189,9 @@ export default function User({navigation}) {
         <ScrollView style={{height: SIZES.height, width: SIZES.width}}>
           <View style={{marginBottom: SIZES.margin * 3}}>
             <View style={style.profile}>
-              <TouchableOpacity style={style.image}>
+              <TouchableOpacity
+                style={style.image}
+                onPress={() => setModalVisible(true)}>
                 <Icon name="person-outline" color={COLORS.black} size={50} />
               </TouchableOpacity>
               <Text style={{...FONTS.medium, ...SIZES.h1, fontSize: 20}}>
